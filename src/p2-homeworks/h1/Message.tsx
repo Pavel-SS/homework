@@ -1,9 +1,9 @@
 import React from 'react'
-// import './Message.module.scss'
-// import style from './Message.module.scss'
+import './Message.scss'
+
 
 type messageData = {
-    avatar: any,
+    avatar: string,
     name: string,
     message: string,
     time: string,
@@ -11,13 +11,17 @@ type messageData = {
 
 function Message(props: messageData) {
     return (
-        <div>
-            <img src={props.avatar} alt="img" />
-            <div className='message__lower-triangle'></div>
-            <div className='message__block'>
-                <p>{props.name}</p>
-                <p>{props.message}</p>
-                <p>{props.time}</p>
+        <div className="message__container">
+                <img className="message__avatar" src={props.avatar} alt="img" />
+
+            <div className="message__block">
+                <div className="message__descr">
+                    <p className="message__descr_name">{props.name}</p>
+                    <p className="message__descr_txt">{props.message}</p>
+                </div>
+                <div className="message__time">
+                     {props.time}   
+                </div>
             </div>
         </div>
     )
