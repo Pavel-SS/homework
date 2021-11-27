@@ -1,7 +1,14 @@
-.someClass {
+/* .someClass {
 
-}
+} */
 
 .error {
     border: 1px solid red;
+}
+.correct{
+    border: 1px solid black;
+}
+.error_message{
+    display: block;
+    color: red
 }
