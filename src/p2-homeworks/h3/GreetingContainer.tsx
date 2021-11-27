@@ -1,10 +1,10 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
 import Greeting from './Greeting'
 import { UserType } from './HW3'
- 
+
 type GreetingContainerPropsType = {
     users: UserType[] // need to fix any
-    addUserCallback: (userName:string) => void // need to fix any
+    addUserCallback: (userName: string) => void // need to fix any
 }
 
 // более простой и понятный для новичков
@@ -17,23 +17,22 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
     const [error, setError] = useState<string>('') // need to fix any
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => { // need to fix any
-        setName(e.currentTarget.value)
-    // need to fix
+        setName(e.currentTarget.value) // need to fix
     }
-    const keyPressHandler = (e: KeyboardEvent<HTMLInputElement>)=>{
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter'){
-            addUser()
+            setName('')
         }
     }
     const addUser = () => {
-        addUserCallback(name)
-        let trimName = name.trim();
-        if(trimName){
-            setError('')
+        let nameTrim = name.trim()   
+        if(nameTrim){
+            addUserCallback(nameTrim)
             setName('')
-            alert(`Hello ${trimName}!`) // need to fix
+            setError('')
+            alert(`Hello ${nameTrim}!`) // need to fix
         }else{
-            setError('error')
+            setError('You need to enter a name')
         }
     }
 
@@ -43,7 +42,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         <Greeting
             name={name}
             setNameCallback={setNameCallback}
-            keyPressHandler ={keyPressHandler}
+            onKeyPressHandler = {onKeyPressHandler}
             addUser={addUser}
             error={error}
             totalUsers={totalUsers}
