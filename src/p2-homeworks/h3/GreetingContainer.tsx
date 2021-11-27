@@ -21,7 +21,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
     }
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter'){
-            setName('')
+            addUser()
         }
     }
     const addUser = () => {
@@ -32,6 +32,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             setError('')
             alert(`Hello ${nameTrim}!`) // need to fix
         }else{
+            setName('')
             setError('You need to enter a name')
         }
     }
