@@ -1,27 +1,21 @@
 import React from 'react'
-import Error404 from './pages/Error404'
-import PreJunior from './pages/PreJunior'
-import {NavLink, Routes, Route } from 'react-router-dom'
 
-export const PATH = {
-    PRE_JUNIOR: '/pre-junior',
-    // add paths
-}
+import PreJunior from './pages/PreJunior'
+import { JuniorDev } from './pages/JuniorDev'
+import { JuniorPlus } from './pages/JuniorPlus'
+import Error404 from './pages/Error404'
+import { Routes, Route } from 'react-router-dom'
+
+
 
 function RoutesFunc() {
     return (
-        <div>
-            {/*Switch выбирает первый подходящий роут*/}
-            <NavLink to={'/pre-junior'}>pre-junior</NavLink>
+        <div> 
             <Routes>
-            {/*в начале мы попадаем на страницу '/' и переходим сразу на страницу PRE_JUNIOR*/}
-            {/*exact нужен чтоб указать полное совподение (что после '/' ничего не будет)*/}
-            {/*<Route path={'/'} exact render={() => <Redirect to={PATH.PRE_JUNIOR}/>}/>*/}
-
-            <Route path={'/pre-junior'} element={<PreJunior/>}/>
-            {/*у этого роута нет пути, он отрисуется если пользователь захочет попасть на несуществующую страницу*/}
-            <Route element={() => <Error404/>}/>
-
+                <Route path={'/pre-junior'} element={<PreJunior/>}/>
+                <Route path={'/junior'} element={<JuniorDev/>}/>
+                <Route path={'/junior_plus'} element={<JuniorPlus/>}/>
+                <Route element={() => <Error404/>}/>
             </Routes>
         </div>
     )

@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    padding-left: 10px;
+    width: 300px;
+    transform: translateX(-160px);
+    &:hover{
+    transform: translateX(0px);
+        .block {
+            display: none;
+        }
+        .link {
+            visibility: visible;
+            border: 0px solid;
+            border-radius: 5px;
+            background-color: rgb(187, 230, 231);
+            margin-right: 5px;
+            padding: 2px 8px;
+            text-decoration: none;
+            font-weight: 700;
+            color: rgb(18, 18, 235);
+            &:hover{
+                color: rgb(81, 210, 30);
+            }
+        }
+    }
+}
+.link {
+    visibility: hidden;
+}
+.block {
+    font-weight: 700;
+    font-size: 18px;
+    color: rgb(18, 18, 235);
+    background-color: rgb(187, 230, 231);
+    border: 2px solid rgb(187, 230, 231);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 5px;
+}
+
