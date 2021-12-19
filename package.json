@@ -1,4 +1,4 @@
-{
+{ "homepage": "https://pavel-ss.github.io/homework/",
   "name": "homework",
   "version": "0.1.0",
   "private": true,
@@ -21,7 +21,6 @@
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "https://pavel-ss.github.io/homework/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
