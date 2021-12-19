@@ -1,7 +1,18 @@
 .checkbox {
-
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #000000;
+    cursor:pointer;
 }
-
-.spanClassName {
-
+.checkbox:checked {
+    appearance: none;
+    background-image: url(https://w7.pngwing.com/pngs/355/539/png-transparent-green-check-illustration-check-mark-green-ticks-angle-leaf-plant-stem.png);
+    background-size: cover;
+    border: 1px solid #000000;
+}
+.label{
+    display: flex;
+    align-items:center;
+    cursor:pointer;
 }

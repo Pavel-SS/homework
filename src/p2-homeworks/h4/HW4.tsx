@@ -39,7 +39,7 @@ function HW4() {
 
                 {/*----------------------------------------------------*/}
 
-                <SuperButton>
+                <SuperButton className={s.red}>
                     default
                 </SuperButton>
 

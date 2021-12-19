@@ -1,7 +1,26 @@
-.default {
-
-}
+.default{
+    background-color:rgb(175, 177, 173);
+    color: rgb(248, 107, 6);
+} 
 
 .red {
     background: red;
 }
+
+.btn{
+    position: relative;
+    border-radius: 7px;
+    cursor: pointer;
+
+}
+
+.btn:active{
+    background-color:rgb(180, 149, 138);  
+}
+
+.btn:disabled{
+    color: rgb(117, 117, 117);
+    cursor: auto;
+    z-index: -1;
+}
+

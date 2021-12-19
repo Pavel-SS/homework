@@ -8,15 +8,15 @@ function Header() {
         <div className={s.header}>
 
             <NavLink to={'/pre-junior'} 
-                className={({isActive})=> isActive ? 'active'+' '+ s.link : s.link}>
+                className={({isActive})=> isActive ? 'active' + ' ' + s.link : s.link}>
                 pre-junior
             </NavLink>
             <NavLink to={'./junior'} 
-                className={({isActive})=> isActive ? 'active'+' '+ s.link : s.link}>
+                className={({isActive})=> isActive ? 'active' + ' ' + s.link : s.link}>
                 junior
             </NavLink>
             <NavLink to={'/junior_plus'} 
-                className={({isActive})=> isActive ? 'active'+' '+ s.link : s.link}>
+                className={({isActive})=> isActive ? 'active' + ' ' + s.link : s.link}>
                 junior+
             </NavLink>
             <div className={s.block}>&#10144;</div>
