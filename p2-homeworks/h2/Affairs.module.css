@@ -1,0 +1,16 @@
+.affair_name, .affair_priority{
+    display: inline-block;
+}
+
+
+.affair_name{
+    color: brown;
+    font-weight: 700;
+    width: 90px;
+}
+
+.affair_priority{
+    color:darkgreen;
+    margin-right: 15px;
+    width: 50px;
+}
