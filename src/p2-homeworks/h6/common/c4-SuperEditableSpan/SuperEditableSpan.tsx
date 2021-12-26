@@ -45,13 +45,13 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
         onDoubleClick && onDoubleClick(e)
     }
 
-    const spanClassName = `${s.span} ${className}`
-
+    const spanClassName = `${s.span}  ${className}`
+  
     return (
         <>
             {editMode
                 ? (
-                    <SuperInputText
+                    <SuperInputText 
                         autoFocus // пропсу с булевым значением не обязательно указывать true
                         onBlur={onBlurCallback}
                         onEnter={onEnterCallback}
