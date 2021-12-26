@@ -6,11 +6,16 @@ import {HashRouter} from 'react-router-dom'
 function HW5() {
     return (
         <div>
+            <hr />
+            <hr />
+            <hr />
+            homeworks 5
             {/*в gh-pages лучше работает HashRouter*/}
             <HashRouter>
 
             <Header/>
-
+            <hr />
+            <hr />
             <RoutesFunc/>
 
             </HashRouter>
