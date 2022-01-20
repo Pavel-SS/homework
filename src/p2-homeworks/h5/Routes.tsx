@@ -10,8 +10,7 @@ import { Routes, Route } from 'react-router-dom'
 
 function RoutesFunc() {
     return (
-        <div> 
-            
+        <div>  
             <Routes>
                 <Route path={'/pre-junior'} element={<PreJunior/>}/>
                 <Route path={'/junior'} element={<JuniorDev/>}/>
