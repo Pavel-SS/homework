@@ -7,41 +7,40 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
 
     const stop = () => {
-        // stop
+        clearInterval(timerId);
     }
     const start = () => {
         stop()
         const id: number = window.setInterval(() => {
-            // setDate
+            setDate(new Date())
         }, 1000)
         setTimerId(id)
     }
 
     const onMouseEnter = () => {
-        // show
+        setShow(true)
     }
     const onMouseLeave = () => {
-        // close
+        setShow(false)
     }
 
-    const stringTime = 'Time' // fix with date
-    const stringDate = 'Date' // fix with date
+    const stringTime = date?.toLocaleTimeString() || <span>00:00:00</span> 
+    const stringDate = date?.toLocaleDateString() || <span>Start counting time</span>
 
     return (
         <div>
-            <div
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-            >
+            <div>
                 {stringTime}
             </div>
-
-            {show && (
-                <div>
-                    {stringDate}
-                </div>
-            )}
-
+            <div 
+                 onMouseEnter={onMouseEnter}
+                 onMouseLeave={onMouseLeave}
+            >
+                {show ? 
+                <span> {stringDate} </span> :
+                <span> Show date</span>}
+            </div>
+            
             <SuperButton onClick={start}>start</SuperButton>
             <SuperButton onClick={stop}>stop</SuperButton>
 
