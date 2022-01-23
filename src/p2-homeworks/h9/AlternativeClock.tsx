@@ -1,29 +1,34 @@
 
-// import moment, { Moment } from 'moment'
-import { format } from 'date-fns'
+import moment, { Moment } from 'moment'
 import React, {useState} from 'react'
-import { be } from 'date-fns/locale'
-
+import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import './AlternativeClock.scss'
     
 function AlternativeClock() {
-    // const [dates, setDates] = useState <Moment> ()
+    const [date, setDate] = useState <Moment> (moment)
+    const [id, setId] = useState <number> (0)
 
-    // window.setInterval(() => {setDates(moment())}, 1000)
-    // const d = dates?.format('LTS');
+    const sH = () => {console.log(id)
+        if ( id === 0){ 
+            clearInterval(id)
+            setId(window.setInterval(() => {
+                setDate(moment())
+            }, 1000))
+        }else{
+            setId(0)
+            clearInterval(id)
+        }
+    }
+
+    const d = date?.format('LTS') || <span>00:00:00</span>;
     
-    // return ( 
-    //     <div>
-    //         { d }
-    //     </div>
-    // )
-const [dates, setDates] = useState<Date>()
-const result = format(new Date(),'eeee, dd MMMM HH:mm:ss',{locale: be})
-window.setInterval(()=>{setDates(new Date())}, 1000);
-    return (
+    return ( 
         <div>
-            {result}
+            <SuperButton onClick={sH}>Show Clock</SuperButton>
+            <span className={id === 0 ? 'show': ''}>{ d }</span>
         </div>
     )
+  
 }
 
 export default AlternativeClock
