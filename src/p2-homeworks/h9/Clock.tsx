@@ -11,10 +11,10 @@ function Clock() {
     }
     const start = () => {
         stop()
-        const id: number = window.setInterval(() => {
+        setTimerId(window.setInterval(() => {
             setDate(new Date())
-        }, 1000)
-        setTimerId(id)
+        }, 1000))
+        
     }
 
     const onMouseEnter = () => {
