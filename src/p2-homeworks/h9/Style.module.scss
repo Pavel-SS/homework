@@ -1,0 +1,52 @@
+.number {
+    width: 30px;
+    background-color:brown;
+}
+
+.number1 {--roation: 30deg}
+.number2 {--roation: 60deg}
+.number3 {--roation: 90deg}
+.number4 {--roation: 120deg}
+.number5 {--roation: 150deg}
+.number6 {--roation: 180deg}
+.number7 {--roation: 210deg}
+.number8 {--roation: 240deg}
+.number9 {--roation: 270deg}
+.number10 {--roation: 300deg}
+.number11 {--roation: 330deg}
+
+.number1 div{
+  transform: rotate(-30deg);
+}
+
+.number2 div{
+  transform: rotate(-60deg);
+}
+.number3 div{
+  transform: rotate(-90deg);
+}
+.number4 div{
+  transform: rotate(-120deg);
+}
+.number5 div{
+  transform: rotate(-150deg);
+}
+.number6 div{
+  transform: rotate(-180deg);
+  
+}
+.number7 div{
+  transform: rotate(-210deg);
+}
+.number8 div{
+  transform: rotate(-240deg);
+}
+.number9 div{
+  transform: rotate(-270deg);
+}
+.number10 div{
+  transform: rotate(-300deg);
+}
+.number11 div{
+  transform: rotate(-330deg);
+}
