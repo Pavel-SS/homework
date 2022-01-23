@@ -2,7 +2,7 @@
 import moment, { Moment } from 'moment'
 import React, {useState} from 'react'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
-import './AlternativeClock.scss'
+import './Style.scss'
     
 function AlternativeClock() {
     const [date, setDate] = useState <Moment> (moment)
