@@ -1,40 +1,34 @@
 
-// import moment, { Moment } from 'moment'
-import { format, parse } from 'date-fns'
-import set from 'date-fns/set'
+import moment, { Moment } from 'moment'
 import React, {useState} from 'react'
-import { ru, be } from 'date-fns/locale'
-
+import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import './AlternativeClock.scss'
     
 function AlternativeClock() {
-    // const [dates, setDates] = useState <Moment> ()
+    const [date, setDate] = useState <Moment> (moment)
+    const [id, setId] = useState <number> (0)
 
-    // window.setInterval(() => {setDates(moment())}, 1000)
-    // const d = dates?.format('LTS');
+    const sH = () => {console.log(id)
+        if ( id === 0){ 
+            clearInterval(id)
+            setId(window.setInterval(() => {
+                setDate(moment())
+            }, 1000))
+        }else{
+            setId(0)
+            clearInterval(id)
+        }
+    }
+
+    const d = date?.format('LTS') || <span>00:00:00</span>;
     
-    // return ( 
-    //     <div>
-    //         { d }
-    //     </div>
-    // )
-  
-
-//     const digitalClock = document.querySelector(".digital-clock");
-// const tick = () => {
-//   const now = new Date();
-//   const HMS = dateFns.format(now, "hh : mm : ss A");
-//   const DMY = dateFns.format(now, "dddd, MMMM Do, YYYY");
-//   const clock = `<span class="time">${HMS}</span><span>${DMY}</span>`;
-//   digitalClock.innerHTML = clock;
-// };
-const [dates, setDates] = useState<Date>()
-const result = format(new Date(),'eeee, dd MMMM HH:mm:ss',{locale: be})
-window.setInterval(()=>{setDates(new Date())}, 1000);
-    return (
+    return ( 
         <div>
-            {result}
+            <SuperButton onClick={sH}>Show Clock</SuperButton>
+            <span className={id === 0 ? 'show': ''}>{ d }</span>
         </div>
     )
+  
 }
 
 export default AlternativeClock
