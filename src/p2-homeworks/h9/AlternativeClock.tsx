@@ -1,61 +1,62 @@
 
-import moment, { Moment } from 'moment'
-import React, {useState} from 'react'
-import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
-import {v1} from 'uuid';
+import React, {useEffect, useState} from 'react'
 import './Style.scss'
-import s from './Style.module.scss'
-// function AlternativeClock() {
-//     const [date, setDate] = useState <Moment> (moment)
-//     const [id, setId] = useState <number> (0)
-
-//     const sH = () => {console.log(id)
-//         if ( id === 0){ 
-//             clearInterval(id)
-//             setId(window.setInterval(() => {
-//                 setDate(moment())
-//             }, 1000))
-//         }else{
-//             setId(0)
-//             clearInterval(id)
-//         }
-//     }
-
-//     const d = date?.format('LTS') || <span>00:00:00</span>;
-    
-//     return ( 
-//         <div>
-//             <SuperButton onClick={sH}>Show Clock</SuperButton>
-//             <span className={id === 0 ? 'show': ''}>{ d }</span>
-//         </div>
-//     )
-  
-// }
 
 
+type RotationType = {
+    hourRotate: number
+    minuteRotate: number
+    secondRotate: number
+}
 function AlternativeClock(){
-    const [x, setX] = useState<Array<number>>([]);
-        const xor = [];
+    const [num, setNum] = useState<Array<number>>([]);
+    const [rotation, setRotation] = useState<RotationType>({
+       secondRotate: 0, 
+       minuteRotate: 0,
+       hourRotate: 0,
+    })
+        const arrNum = [];
         for(let i = 1; i <= 12; i++){
-            xor.push(i);  
+            arrNum.push(i);  
         }
-        if (x.length === 12){
-            setX(xor)
+        if (num.length === 12){
+            setNum(arrNum)
         }
-       const num = xor.map(item => {
-           let num = +item
-         return (<div className={'number'+' '+'number'+String(num)}>{item}</div>)
+       const clockNum = arrNum.map(item => {
+           let n = +item
+         return (<div className={'number'+' '+'number'+String(n)}>{item}</div>)
         })
 
-   console.log(x);
 
-   
+        useEffect(()=> {
+            window.setInterval(()=> {
+                runArrowClock()
+            }, 1000)
+        }) 
+
+        const runArrowClock = ()=> {
+        let secondRotatet = new Date().getSeconds() / 60; 
+        let minuteRotatet = (secondRotatet + new Date().getMinutes()) / 60;
+        let hourRotatet = (minuteRotatet + new Date().getHours()) / 12;
+        setRotation({
+            secondRotate: secondRotatet,
+            minuteRotate: minuteRotatet,
+            hourRotate: hourRotatet
+        }) 
+        }
+             
+        const Cl = (secondRotate: {}, minuteRotate: {}, hourRotate: {})=> {
+            return (<>
+                <div className={'hand' + ' ' + 'hour'}  style={{transform: `translate(-50%) rotate(${rotation.hourRotate * 360}deg)`}}></div>
+                <div className={'hand'+ ' ' + 'minute'} style={{transform:`translate(-50%) rotate(${rotation.minuteRotate * 360}deg)`}}></div>
+                <div className={'hand' + ' ' + 'second'} style={{transform:`translate(-50%) rotate(${rotation.secondRotate * 360}deg)`}}></div>
+            </>)
+        }
+        console.log(rotation.secondRotate)
     return (
-        <div className='alternativeClock'>
-            <div className={s.hour}></div>
-            <div className={s.minut}></div>
-            <div className={s.second}></div>
-            {num}
+        <div className={'alternativeClock'+' '+'clock'}>
+           <Cl/>
+            {clockNum}
         </div>
     )
 }
