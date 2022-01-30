@@ -1,7 +1,8 @@
 
 import React, {useEffect, useState} from 'react'
-import './Style.scss'
+import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 
+import './Style.scss'
 
 type RotationType = {
     hourRotate: number
@@ -9,6 +10,7 @@ type RotationType = {
     secondRotate: number
 }
 function AlternativeClock(){
+    const [timerId, setTimerId] = useState<number>(0)
     const [num, setNum] = useState<Array<number>>([]);
     const [rotation, setRotation] = useState<RotationType>({
        secondRotate: 0, 
@@ -28,11 +30,22 @@ function AlternativeClock(){
         })
 
 
-        useEffect(()=> {
-            window.setInterval(()=> {
+        const stop = () => {
+            clearInterval(timerId)
+            setTimerId(0)
+        }
+        const start = () => {
+            stop();
+            const id: number = window.setInterval(()=> {
                 runArrowClock()
-            }, 1000)
-        }) 
+            }, 1000);
+            setTimerId(id);
+        }
+        // useEffect(()=> {
+        //     window.setInterval(()=> {
+        //         runArrowClock()
+        //     }, 1000)
+        // }) 
 
         const runArrowClock = ()=> {
         let secondRotatet = new Date().getSeconds() / 60; 
@@ -54,10 +67,15 @@ function AlternativeClock(){
         }
         console.log(rotation.secondRotate)
     return (
-        <div className={'alternativeClock'+' '+'clock'}>
-           <Cl/>
+        <div >
+            <div style={{display: `${timerId !== 0 ? 'none' : 'block'}`}} className='clock__cap'>This is another watch </div>
+            <div  style={{display: `${timerId === 0 ? 'none' : 'block'}`}} className={'alternativeClock'+' '+'clock'}>
+                <Cl/>
             {clockNum}
+            </div>
+            <SuperButton onClick={timerId === 0 ? start: stop}>SHOW ALTERNATIVE CLOCK</SuperButton>
         </div>
+        
     )
 }
 export default AlternativeClock
