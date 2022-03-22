@@ -1,3 +1,7 @@
 .range {
 
 }
+.span_range {
+    display: inline-block;
+    min-width: 25px;
+}
