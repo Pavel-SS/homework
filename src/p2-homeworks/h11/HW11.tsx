@@ -5,8 +5,9 @@ import {MinimumDistanceSlider} from './common/c8-SuperDoubleRange/SuperDoubleRan
 import style from './common/c7-SuperRange/SuperRange.module.css'
 function HW11() {
     const [value1, setValue1] = useState(0)
-    const [value2, setValue2] = useState([0, 100])
-    
+
+    const [value2, setValue2] = useState([20, 80])
+
     return (
         <div>
             <hr/>
