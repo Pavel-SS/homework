@@ -1,6 +1,6 @@
 export type ThemeStyleType = 'dark' | 'red' | 'some'
 
-const initState = {
+export const initState = {
      themeBlock: 'some' as ThemeStyleType
 };
  
@@ -11,7 +11,7 @@ type ActionType = {
 export const themeReducer = (state = initState, action: ActionType): typeof initState => { // fix any
     switch (action.type) {
         case 'CHANGE-THEME': {
-            return state;
+            return {...state, themeBlock: action.theme}
         }
         default: return state;
     }
