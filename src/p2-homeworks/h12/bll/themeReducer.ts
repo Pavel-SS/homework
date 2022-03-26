@@ -1,4 +1,4 @@
-export type ThemeStyleType = 'dark' | 'red' | 'some'
+export type ThemeStyleType = 'dark' | 'red' | 'some' 
 
 export const initState = {
      themeBlock: 'some' as ThemeStyleType
